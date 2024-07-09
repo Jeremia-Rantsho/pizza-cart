@@ -1,0 +1,142 @@
+
+.webBody{
+    background-color: rgb(12, 158, 216);
+
+    padding: 1em 1em 5em 1em;
+    font-family: Arial;
+    line-height: 30px;
+}
+h1{
+    text-align: center;
+}
+h2{
+    margin-bottom: 10px;
+}
+.slogan{
+    font-style: italic;
+    text-align: center;
+    font-size: medium;
+}
+
+@media(max-width:768px){
+    .smallPizza{
+        float: right;
+        width: 20%;
+        margin-right: 30%;
+    }
+    .mediumPizza{
+        float: right;
+        width: 25%;
+        margin-right: 40%;
+    }
+
+    .largePizza{
+        float: right;
+        width: 35%;
+        margin-right: 20%;
+        
+    }
+
+    .section1{
+        background-color: #ddb815;
+        flex: 1;
+        padding: 1em 1em 5em 1em;
+        margin-bottom: 15px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+
+    .section2{
+        background-color: #fc260a;
+        flex: 1;
+        padding: 1em 1em 5em 1em;
+        margin-bottom: 15px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+
+    .section3{
+        background-color: #ffc0cb;
+        flex: 1;
+        padding: 1em 1em 5em 1em;
+        margin-bottom: 15px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+
+    .contacts{
+        margin-right: 15%;
+    }
+    
+    .footer{
+        background-color: #0c9e18;
+        display: flex;
+        padding: 1em 1em 5em 1em;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+}
+
+@media(min-width:960px){
+    .pizzaFlex{
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .smallPizza{
+        float: right;
+        width: 20%;
+        margin-right: 30%;
+    }
+    .mediumPizza{
+        float: right;
+        width: 25%;
+        margin-right: 40%;
+    }
+
+    .largePizza{
+        float: right;
+        width: 35%;
+        margin-right: 20%;
+        
+    }
+    
+    .section1{
+        background-color: #ddb815;
+        flex: 1;
+        padding: 1em;
+        margin-right: 15px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+    
+    .section2{
+        background-color: #fc260a;
+        flex: 1;
+        padding: 1em;
+        margin-right: 15px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+    
+    .section3{
+        background-color: #ffc0cb;
+        flex: 1;
+        padding: 1em;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+    
+    .contacts{
+        margin-right: 50%;
+    }
+    
+    .footer{
+        background-color: #0c9e18;
+        display: flex;
+        padding: 1em;
+        padding: 1em 1em 5em 1em;
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    }
+}
