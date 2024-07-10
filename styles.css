@@ -1,142 +1,114 @@
-
-.webBody{
-    background-color: rgb(12, 158, 216);
-
+.webBody {
+    background-color: #741818;
+    ;
+    color: aliceblue;
     padding: 1em 1em 5em 1em;
     font-family: Arial;
     line-height: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
-h1{
+
+header {
     text-align: center;
 }
-h2{
-    margin-bottom: 10px;
-}
-.slogan{
+
+.slogan {
     font-style: italic;
-    text-align: center;
     font-size: medium;
 }
 
-@media(max-width:768px){
-    .smallPizza{
-        float: right;
-        width: 20%;
-        margin-right: 30%;
-    }
-    .mediumPizza{
-        float: right;
-        width: 25%;
-        margin-right: 40%;
-    }
-
-    .largePizza{
-        float: right;
-        width: 35%;
-        margin-right: 20%;
-        
-    }
-
-    .section1{
-        background-color: #ddb815;
-        flex: 1;
-        padding: 1em 1em 5em 1em;
-        margin-bottom: 15px;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-
-    .section2{
-        background-color: #fc260a;
-        flex: 1;
-        padding: 1em 1em 5em 1em;
-        margin-bottom: 15px;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-
-    .section3{
-        background-color: #ffc0cb;
-        flex: 1;
-        padding: 1em 1em 5em 1em;
-        margin-bottom: 15px;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-
-    .contacts{
-        margin-right: 15%;
-    }
-    
-    .footer{
-        background-color: #0c9e18;
-        display: flex;
-        padding: 1em 1em 5em 1em;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
+.myCart {
+    background-color: #f08080;
+    text-align: center;
+    padding-bottom: 5em;
 }
 
-@media(min-width:960px){
-    .pizzaFlex{
+.pizzaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-containers button {
+    margin: 0 5px;
+}
+
+.myBuyBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+}
+
+.smallPizza {
+    float: inline-end;
+    width: 20%;
+    margin-right: 30%;
+}
+
+.mediumPizza {
+    float: right;
+    width: 30%;
+    margin-right: 40%;
+}
+
+.largePizza {
+    float: right;
+    width: 40%;
+    margin-right: 20%;
+
+}
+
+.mediumpContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.largepContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.smallpContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.contacts {
+    margin-right: 40%;
+}
+
+footer {
+    background-color: #f88888;
+    padding: 1em;
+    padding: 1em 1em 5em 1em;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+}
+
+span {
+    margin-top: 5px;
+}
+
+@media(min-width:960px) {
+    .pizzaflex {
         display: flex;
+        flex-direction: row;
         margin-bottom: 30px;
     }
 
-    .smallPizza{
-        float: right;
-        width: 20%;
-        margin-right: 30%;
-    }
-    .mediumPizza{
-        float: right;
-        width: 25%;
-        margin-right: 40%;
-    }
-
-    .largePizza{
-        float: right;
-        width: 35%;
-        margin-right: 20%;
-        
-    }
-    
-    .section1{
-        background-color: #ddb815;
-        flex: 1;
-        padding: 1em;
-        margin-right: 15px;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-    
-    .section2{
-        background-color: #fc260a;
-        flex: 1;
-        padding: 1em;
-        margin-right: 15px;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-    
-    .section3{
-        background-color: #ffc0cb;
-        flex: 1;
-        padding: 1em;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-    }
-    
-    .contacts{
-        margin-right: 50%;
-    }
-    
-    .footer{
-        background-color: #0c9e18;
+    footer {
         display: flex;
-        padding: 1em;
-        padding: 1em 1em 5em 1em;
-        border-radius: 25px;
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
     }
 }
