@@ -10,73 +10,99 @@
 
 <body>
     <div class="webBody">
+
         <header>
-            <h1>Perfect Pizza</h1>
-            <h2 class="slogan">Grab a bite on the <strong>Go!!!</strong></h2>
+            <div class="logoContainer">
+                <img class="logoImage" src="images/logo.jpg" alt="logo-pizza">
+            </div>
+            <div class="logoHeaders">
+                <h1>Zandile's Perfect Pizza</h1>
+                <h2 class="slogan">Grab a bite on the <strong>Go!!!</strong></h2>
+            </div>
         </header>
 
         <hr>
 
-        <main>
-            <div class="myCart">
+        <main   x-data="pricer">
+            <div class="myCart" x-show="pizzaCart">
                 <h3>Pizza Cart</h3>
-                <div class="pizzaContainer" x-data="pricer">
-                    <div class="c-containers">
-                        <h4>Small</h4>
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Small</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="smallQty >= 0" x-on:click="orderSmallpizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="smallQty >= 0" @click="cancelSmallpizza()">-</button></div>
+                        <div class="c-containers">
+                            R<span x-text="smallTotalprice.toFixed(2)"></span>
+                        </div>
                     </div>
-                    <div class="c-containers"><button x-on:click="smallPizzaincrement()">+</button>
-                    </div>
-                    <div class="c-containers"><button @click="smallPizzadecrement()">-</button></div>
-                    <div class="c-containers">
-                        <h3 id="smallPrice" x-text="price"></h3>
-                    </div>
+                    <span x-text="smallQty"></span>
                 </div>
 
-                <div class="pizzaContainer" x-data="pricer">
-                    <div class="c-containers">
-                        <h4>Medium</h4>
+
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Medium</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="mediumQty >= 0" x-on:click="orderMediumpizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="mediumQty >= 0" @click="cancelMediumpizza()">-</button></div>
+                        <div class="c-containers">
+                            R<span x-text="mediumTotalprice.toFixed(2)"></span>
+                        </div>
                     </div>
-                    <div class="c-containers"><button x-on:click="mediumPizzaincrement()">+</button>
-                    </div>
-                    <div class="c-containers"><button @click="mediumPizzadecrement()">-</button></div>
-                    <div class="c-containers">
-                        <h3 required min="1" max="2" :value="price" x-text="price"></h3>
-                    </div>
+                    <span x-text="mediumQty"></span>
                 </div>
 
-                <div class="pizzaContainer" x-data="pricer">
-                    <div class="c-containers">
-                        <h4>Large</h4>
+
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Large</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="largeQty >= 0" x-on:click="orderLargepizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="largeQty >= 0" @click="cancelLargepizza()">-</button></div>
+                        <div class="c-containers">
+                            R<span x-text="largeTotalprice.toFixed(2)"></span>
+                        </div>
                     </div>
-                    <div class="c-containers"><button x-on:click="largePizzaincrement()">+</button>
-                    </div>
-                    <div class="c-containers"><button @click="largePizzadecrement()">-</button></div>
-                    <div class="c-containers">
-                        <h3 required min="29" max="29" :value="price" x-text="price"></h3>
-                    </div>
+                    <span x-text="largeQty"></span>
                 </div>
 
-                <div class="pizzaContainer" x-data="pricer">
-                    <div class="c-containers">
-                        <h4>Total Cost:</h4>
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Total Cost:</h4>
+                        </div>
+                        <div class="c-containers">
+                            R<span x-text="pizzaTotalcost().toFixed(2)"></span>
+                        </div>
                     </div>
-                    <div class="c-containers">
-                        <h3 required min="29" max="29" :value="price" x-text="price"></h3>
-                    </div>
+                    <span x-text="pizzaTotalQty()"></span>
                 </div>
 
-                <button class="myBuyBtn">
+                <div x-show="pizzaTotalQty() > 0">
+                    
+                    <label>Enter Amount</label>
+                    <input class="input" type="number" x-model="pizzaAmount">
+                </div>
+                <button x-show="pizzaTotalQty() > 0" class="myBuyBtn" x-on:click="purchasePizza()">
                     Checkout
                 </button>
+                <span x-text="paymentMsg"></span>
             </div>
             <hr>
 
             <div class="pizzaflex">
-                <div class="smallpContainer" x-data="pricer">
+                <div class="smallpContainer">
                     <img class="smallPizza" src="images/pizza.png">
                     <h2>Small Pizza</h2>
                     <h2><a href="#" target="_parent">
-                            R29&#46;99
+                            R48&#46;95
                         </a>
                     </h2>
                     <ul>
@@ -84,22 +110,19 @@
                         <li>1 meat topping</li>
                         <li>3 or less other toppings</li>
                     </ul>
-                    <button x-on:click="smallPizzaincrement()" class="myBuyBtn">
+                    <button x-show="smallQty>=0" x-on:click="orderSmallpizza(), showPizzacart()" class="myBuyBtn">
                         Order Now
                     </button>
-                    <div class="c-containers">
-                        <h3 x-text="price"></h3>
-                    </div>
                 </div>
 
-                <div class="mediumpContainer" x-data="pricer">
+                <div class="mediumpContainer">
                     <div class="medPizza-pic">
                         <img class="mediumPizza" src="images/pizza.png">
                     </div>
 
                     <h2>Medium Pizza</h2>
                     <h2><a href="#" target="_parent">
-                            R59&#46;99
+                            R87&#46;99
                         </a>
                     </h2>
 
@@ -108,20 +131,16 @@
                         <li>2 or less meat toppings</li>
                         <li>3 or less other toppings</li>
                     </ul>
-                    <button x-on:click="mediumPizzaincrement()" class="myBuyBtn">
+                    <button x-on:click="orderMediumpizza(), showPizzacart()" class="myBuyBtn">
                         Order Now
                     </button>
-                    <div class="c-containers">
-                        <h3 x-text="price"></h3>
-                    </div>
-
                 </div>
 
-                <div class="largepContainer" x-data="pricer">
+                <div class="largepContainer">
                     <img class="largePizza" src="images/pizza.png">
                     <h2>Large Pizza</h2>
                     <h2><a href="#" target="_parent">
-                            R89&#46;99
+                            R145&#46;99
                         </a>
                     </h2>
 
@@ -130,13 +149,9 @@
                         <li>3 meat toppings max</li>
                         <li>3 or less other toppings.</li>
                     </ul>
-                    <button x-on:click="largePizzaincrement()" class="myBuyBtn">
+                    <button x-on:click="orderLargepizza(), showPizzacart()" class="myBuyBtn">
                         Order Now
                     </button>
-                    <div class="c-containers">
-                        <h3 x-text="price"></h3>
-                    </div>
-
                 </div>
 
             </div>
@@ -173,7 +188,6 @@
     <script src="functionality.js"></script>
     <script src="pricing.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/alpine.min.js" defer></script>
 </body>
 
 </html>
