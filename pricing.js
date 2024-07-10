@@ -1,24 +1,95 @@
 
 function pricing() {
     return {
-        price: 0,
-        smallPizzaincrement() {
-            this.price = this.price + 30;
+        pizzaCart: false,
+        checkoutNow:false,
+        smallTotalprice:0.00,
+        smallQty:0,
+        mediumTotalprice:0, 
+        mediumQty:0,
+        largeTotalprice:0.00, 
+        largeQty:0,
+        pizzaAmount: 0,
+        paymentMsg: '',
+        totalCosts: 0.00,
+        totalQty:0,
+        
+        showPizzacart(){
+            return this.pizzaCart=true;
         },
-        smallPizzadecrement() {
-            this.price = this.price - 30;
+
+        orderSmallpizza() {
+            this.smallTotalprice += 48.95;
+            this.smallQty += 1
         },
-        mediumPizzaincrement() {
-            this.price = this.price + 50;
+        cancelSmallpizza() {
+            if (this.smallQty > 0) {
+                this.smallTotalprice -= 48.95;
+                this.smallQty -= 1
+            }
         },
-        mediumPizzadecrement() {
-            this.price = this.price - 50;
+
+        orderMediumpizza() {
+            this.mediumTotalprice += 87.99;
+            this.mediumQty += 1
         },
-        largePizzaincrement() {
-            this.price = this.price + 80;
+
+        cancelMediumpizza() {
+            if (this.mediumQty > 0) {
+                this.mediumTotalprice -= 87.99;
+                this.mediumQty -= 1
+            }
         },
-        largePizzadecrement() {
-            this.price = this.price - 80;
+
+        orderLargepizza() {
+            this.largeTotalprice += 145.99;
+            this.largeQty += 1
         },
-    };
-}
+        cancelLargepizza() {
+            if (this.largeQty > 0) {
+                this.largeTotalprice -= 145.99;
+                this.largeQty -= 1
+            }
+        },
+
+        pizzaTotalcost() {
+            this.totalCosts = this.smallTotalprice + this.mediumTotalprice + this.largeTotalprice;
+            return this.totalCosts;
+        },
+        
+        pizzaTotalQty() {
+            this.totalQty = this.smallQty + this.mediumQty + this.largeQty;
+            return this.totalQty;
+        },
+        purchasePizza() {
+            if (!this.pizzaAmount) {
+                this.paymentMsg = 'Oooops! Please enter valid amount of payment.'
+            }
+            else if (this.pizzaAmount >= this.pizzaTotalcost()) {
+                this.paymentMsg = 'Payment successful. Enjoy your pizza :)'
+                setTimeout(() => {
+                    this.checkoutNow = false;
+                    this.pizzaCart = false;
+                    this.clearPizzacart();
+                }, 10000);
+            } else {
+                this.paymentMsg = 'insufficient funds!'
+                setTimeout(() => {
+                    this.checkoutNow = false;
+                    this.pizzaCart = false;
+                    this.clearPizzacart()
+                }, 10000);
+            }
+        },
+        clearPizzacart() {
+            this.smallTotalprice = 0.00;
+            this.smallQty = 0;
+            this.mediumTotalprice = 0.00;
+            this.mediumQty = 0;
+            this.largeTotalprice = 0.00;
+            this.largeQty = 0;
+            this.paymentMsg = '';
+            this.paymentAmount = 0.00;
+        }
+    }
+};
