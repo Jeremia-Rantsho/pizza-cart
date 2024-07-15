@@ -23,7 +23,7 @@
 
         <hr>
 
-        <main   x-data="pricer">
+        <main x-data="pricer">
             <div class="myCart" x-show="pizzaCart">
                 <h3>Pizza Cart</h3>
                 <div>
@@ -31,9 +31,11 @@
                         <div class="c-containers">
                             <h4>Small</h4>
                         </div>
-                        <div class="c-containers"><button x-show="smallQty >= 0" x-on:click="orderSmallpizza()">+</button>
+                        <div class="c-containers"><button x-show="smallQty >= 0"
+                                x-on:click="orderSmallpizza()">+</button>
                         </div>
-                        <div class="c-containers"><button x-show="smallQty >= 0" @click="cancelSmallpizza()">-</button></div>
+                        <div class="c-containers"><button x-show="smallQty >= 0" @click="cancelSmallpizza()">-</button>
+                        </div>
                         <div class="c-containers">
                             R<span x-text="smallTotalprice.toFixed(2)"></span>
                         </div>
@@ -47,9 +49,11 @@
                         <div class="c-containers">
                             <h4>Medium</h4>
                         </div>
-                        <div class="c-containers"><button x-show="mediumQty >= 0" x-on:click="orderMediumpizza()">+</button>
+                        <div class="c-containers"><button x-show="mediumQty >= 0"
+                                x-on:click="orderMediumpizza()">+</button>
                         </div>
-                        <div class="c-containers"><button x-show="mediumQty >= 0" @click="cancelMediumpizza()">-</button></div>
+                        <div class="c-containers"><button x-show="mediumQty >= 0"
+                                @click="cancelMediumpizza()">-</button></div>
                         <div class="c-containers">
                             R<span x-text="mediumTotalprice.toFixed(2)"></span>
                         </div>
@@ -63,9 +67,11 @@
                         <div class="c-containers">
                             <h4>Large</h4>
                         </div>
-                        <div class="c-containers"><button x-show="largeQty >= 0" x-on:click="orderLargepizza()">+</button>
+                        <div class="c-containers"><button x-show="largeQty >= 0"
+                                x-on:click="orderLargepizza()">+</button>
                         </div>
-                        <div class="c-containers"><button x-show="largeQty >= 0" @click="cancelLargepizza()">-</button></div>
+                        <div class="c-containers"><button x-show="largeQty >= 0" @click="cancelLargepizza()">-</button>
+                        </div>
                         <div class="c-containers">
                             R<span x-text="largeTotalprice.toFixed(2)"></span>
                         </div>
@@ -86,7 +92,7 @@
                 </div>
 
                 <div x-show="pizzaTotalQty() > 0">
-                    
+
                     <label>Enter Amount</label>
                     <input class="input" type="number" x-model="pizzaAmount">
                 </div>
@@ -94,6 +100,11 @@
                     Checkout
                 </button>
                 <span x-text="paymentMsg"></span>
+                <br>
+                <div x-show="totalChange > 0">
+                    Your change is R<span x-text="totalChange.toFixed(2)"></span>
+                </div>
+                
             </div>
             <hr>
 

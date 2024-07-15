@@ -13,6 +13,7 @@ function pricing() {
         paymentMsg: '',
         totalCosts: 0.00,
         totalQty:0,
+        totalChange:0,
         
         showPizzacart(){
             return this.pizzaCart=true;
@@ -66,7 +67,10 @@ function pricing() {
                 this.paymentMsg = 'Oooops! Please enter valid amount of payment.'
             }
             else if (this.pizzaAmount >= this.pizzaTotalcost()) {
+
+                this.totalChange = this.pizzaAmount - this.totalCosts;
                 this.paymentMsg = 'Payment successful. Enjoy your pizza :)'
+                
                 setTimeout(() => {
                     this.checkoutNow = false;
                     this.pizzaCart = false;
@@ -90,6 +94,7 @@ function pricing() {
             this.largeQty = 0;
             this.paymentMsg = '';
             this.paymentAmount = 0.00;
+            this.totalChange = 0.00;
         }
     }
 };
